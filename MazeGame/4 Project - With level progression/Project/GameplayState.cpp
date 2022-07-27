@@ -10,6 +10,7 @@
 #include "Door.h"
 #include "Money.h"
 #include "Goal.h"
+#include "Box.h"
 #include "AudioManager.h"
 #include "Utility.h"
 #include "StateMachineExampleGame.h"
@@ -222,6 +223,13 @@ void GameplayState::HandleCollision(int newPlayerX, int newPlayerY)
 			m_player.SetPosition(newPlayerX, newPlayerY);
 			m_beatLevel = true;
 			break;
+		}
+		case ActorType::Box:
+		{
+			Box* collidedBox = dynamic_cast<Box*>(collidedActor);
+			assert(collidedBox);
+
+			collidedBox->HandleOnCollision(newPlayerX, newPlayerY, &m_player, m_pLevel);
 		}
 		default:
 			break;

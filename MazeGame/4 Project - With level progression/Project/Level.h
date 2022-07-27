@@ -10,9 +10,9 @@ class Level
 	int m_height;
 	int m_width;
 
-	std::vector<PlacableActor*> m_pActors;
-
 public:
+	std::vector<PlacableActor*> pActors;
+
 	Level();
 	~Level();
 
@@ -22,6 +22,7 @@ public:
 
 	bool IsSpace(int x, int y);
 	bool IsWall(int x, int y);
+	bool IsBox(int x, int y);
 
 	int GetHeight() { return m_height; }
 	int GetWidth() { return m_width;  }

@@ -1,5 +1,6 @@
 #pragma once
 #include "Point.h"
+#include "Level.h"
 
 enum class ActorColor
 {
@@ -19,7 +20,8 @@ enum class ActorType
 	Goal,
 	Key,
 	Money,
-	Player
+	Player,
+	Box
 };
 
 class PlacableActor
@@ -42,7 +44,7 @@ public:
 
 	virtual ActorType GetType() = 0;
 	virtual void Draw() = 0;
-	virtual void Update()
+	virtual void Update(Level* level)
 	{
 
 	}

@@ -9,6 +9,7 @@
 #include "Door.h"
 #include "Goal.h"
 #include "Money.h"
+#include "Box.h"
 
 using namespace std;
 
@@ -28,10 +29,10 @@ Level::~Level()
 		m_pLevelData = nullptr;
 	}
 
-	while (!m_pActors.empty())
+	while (!pActors.empty())
 	{
-		delete m_pActors.back();
-		m_pActors.pop_back();
+		delete pActors.back();
+		pActors.pop_back();
 	}
 }
 
@@ -91,7 +92,7 @@ void Level::Draw()
 	COORD actorCursorPosition;
 
 	// Draw actors
-	for (auto actor = m_pActors.begin(); actor != m_pActors.end(); ++actor)
+	for (auto actor = pActors.begin(); actor != pActors.end(); ++actor)
 	{
 		if ((*actor)->IsActive())
 		{
@@ -112,6 +113,11 @@ bool Level::IsWall(int x, int y)
 	return m_pLevelData[GetIndexFromCoordinates(x, y)] == WAL;
 }
 
+bool Level::IsBox(int x, int y)
+{
+	return m_pLevelData[GetIndexFromCoordinates(x, y)] == '0';
+}
+
 bool Level::ConvertLevel(int* playerX, int* playerY)
 {
 	bool anyWarnings = false;
@@ -129,35 +135,35 @@ bool Level::ConvertLevel(int* playerX, int* playerY)
 				break;
 			case 'r':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Key(x, y, ActorColor::Red));
+				pActors.push_back(new Key(x, y, ActorColor::Red));
 				break;
 			case 'g':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Key(x, y, ActorColor::Green));
+				pActors.push_back(new Key(x, y, ActorColor::Green));
 				break;
 			case 'b':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Key(x, y, ActorColor::Blue));
+				pActors.push_back(new Key(x, y, ActorColor::Blue));
 				break;
 			case 'R':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Door(x, y, ActorColor::Red, ActorColor::SolidRed));
+				pActors.push_back(new Door(x, y, ActorColor::Red, ActorColor::SolidRed));
 				break;
 			case 'G':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Door(x, y, ActorColor::Green, ActorColor::SolidGreen));
+				pActors.push_back(new Door(x, y, ActorColor::Green, ActorColor::SolidGreen));
 				break;
 			case 'B':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Door(x, y, ActorColor::Blue, ActorColor::SolidBlue));
+				pActors.push_back(new Door(x, y, ActorColor::Blue, ActorColor::SolidBlue));
 				break;
 			case 'X':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Goal(x, y));
+				pActors.push_back(new Goal(x, y));
 				break;
 			case '$':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Money(x, y, 1 + rand() % 5));
+				pActors.push_back(new Money(x, y, 1 + rand() % 5));
 				break;
 			case '@':
 				m_pLevelData[index] = ' ';
@@ -168,18 +174,22 @@ bool Level::ConvertLevel(int* playerX, int* playerY)
 				}
 				break;
 			case 'e':
-				m_pActors.push_back(new Enemy(x, y));
+				pActors.push_back(new Enemy(x, y));
 				m_pLevelData[index] = ' '; // clear the level
 				break;
 			case 'h':
-				m_pActors.push_back(new Enemy(x, y, 3, 0));
+				pActors.push_back(new Enemy(x, y, 3, 0));
 				m_pLevelData[index] = ' '; // clear the level
 				break;
 			case 'v':
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Enemy(x, y, 0, 2));
+				pActors.push_back(new Enemy(x, y, 0, 2));
 				m_pLevelData[index] = ' '; // clear the level
 				break;
+				break;
+			case '0' :
+				pActors.push_back(new Box(x, y));
+				m_pLevelData[index] = ' '; // clear the level
 				break;
 			case ' ':
 				break;
@@ -204,9 +214,9 @@ PlacableActor* Level::UpdateActors(int x, int y)
 {
 	PlacableActor* collidedActor = nullptr;
 
-	for (auto actor = m_pActors.begin(); actor != m_pActors.end(); ++actor)
+	for (auto actor = pActors.begin(); actor != pActors.end(); ++actor)
 	{
-		(*actor)->Update(); // Update all actors
+		(*actor)->Update(this); // Update all actors
 
 		if (x == (*actor)->GetXPosition() && y == (*actor)->GetYPosition())
 		{
@@ -215,6 +225,5 @@ PlacableActor* Level::UpdateActors(int x, int y)
 			collidedActor = (*actor);
 		}
 	}
-
 	return collidedActor;
 }

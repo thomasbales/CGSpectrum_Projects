@@ -1,5 +1,3 @@
-﻿  Project.cpp
-  SettingsState.cpp
-  WinState.cpp
-  Generating Code...
-  Project.vcxproj -> C:\Users\tbales\source\repos\MazeGame\4 Project - With level progression\x64\Debug\Project.exe
+﻿  Enemy.cpp
+C:\Users\tbales\source\repos\CGSpectrum_Projects\CGSpectrum_Projects\MazeGame\4 Project - With level progression\Project\Enemy.cpp(105): warning C4715: 'Enemy::CheckForCollision': not all control paths return a value
+  Project.vcxproj -> C:\Users\tbales\source\repos\CGSpectrum_Projects\CGSpectrum_Projects\MazeGame\4 Project - With level progression\x64\Debug\Project.exe
