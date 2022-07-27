@@ -6,6 +6,8 @@
 #include <set>
 #include <string>
 
+#include "windows.h"
+
 class Utility
 {
 public:
@@ -46,5 +48,13 @@ public:
 		outfile.close();
 
 		return highscores;
+	}
+
+	static void ClearScreen()
+	{
+		COORD cursorPosition;
+		cursorPosition.X = 0;
+		cursorPosition.Y = 0;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
 	}
 };

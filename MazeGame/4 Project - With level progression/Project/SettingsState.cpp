@@ -5,6 +5,7 @@
 
 #include "StateMachineExampleGame.h"
 #include "AudioManager.h"
+#include "Utility.h"
 
 using namespace std;
 
@@ -40,7 +41,7 @@ bool SettingsState::Update(bool processInput)
 
 void SettingsState::Draw()
 {
-	system("cls");
+	Utility::ClearScreen();
 	cout << endl << endl << endl;
 	cout << "          - - - Settings - - -" << endl << endl;
 	cout << "             " << kSound << ". Toggle Sound: ";

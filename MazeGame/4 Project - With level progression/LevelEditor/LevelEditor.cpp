@@ -3,6 +3,8 @@
 #include <windows.h>
 #include <fstream>
 
+#include "windows.h"
+
 using namespace std;
 
 constexpr char kCursor = '_';
@@ -35,6 +37,8 @@ void SaveLevel(char* pLevel, int width, int height);
 void DisplayLegend();
 void RunEditor(char* pLevel, int width, int height);
 
+void ClearScreen();
+
 int main()
 {
 	char* pLevel = nullptr;
@@ -44,7 +48,7 @@ int main()
 
 	while (!done)
 	{
-		system("cls");
+		ClearScreen();
 		cout << "Please select one of the following options:" << endl;
 		cout << "1. Load Level" << endl;
 		cout << "2. New Level" << endl;
@@ -125,13 +129,13 @@ void RunEditor(char* pLevel, int width, int height)
 	bool doneEditing = false;
 	while (!doneEditing)
 	{
-		system("cls");
+		ClearScreen();
 		DisplayLevel(pLevel, width, height, cursorX, cursorY);
 		DisplayLegend();
 		doneEditing = EditLevel(pLevel, cursorX, cursorY, width, height);
 	}
 
-	system("cls");
+	ClearScreen();
 	DisplayLevel(pLevel, width, height, -1, -1);
 
 	SaveLevel(pLevel, width, height);
@@ -302,4 +306,12 @@ void DisplayRightBorder()
 int GetIndexFromXY(int x, int y, int width)
 {
 	return x + y * width;
+}
+
+void ClearScreen()
+{
+	COORD cursorPosition;
+	cursorPosition.X = 0;
+	cursorPosition.Y = 0;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
 }

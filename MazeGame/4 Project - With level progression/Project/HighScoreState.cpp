@@ -27,7 +27,7 @@ bool HighScoreState::Update(bool processInput)
 
 void HighScoreState::Draw()
 {
-	system("cls");
+	Utility::ClearScreen();
 	cout << endl << endl << endl;
 	cout << "          - - - HIGH SCORES - - -" << endl << endl;
 

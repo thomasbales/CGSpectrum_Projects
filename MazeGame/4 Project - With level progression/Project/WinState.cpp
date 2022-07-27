@@ -4,6 +4,7 @@
 #include <conio.h>
 
 #include "StateMachineExampleGame.h"
+#include "Utility.h"
 
 using namespace std;
 
@@ -25,7 +26,7 @@ bool WinState::Update(bool processInput)
 
 void WinState::Draw()
 {
-	system("cls");
+	Utility::ClearScreen();
 	cout << endl << endl << endl;
 	cout << "          - - - WELL DONE - - -" << endl << endl;
 	cout << "             You beat the game!" << endl << endl << endl;

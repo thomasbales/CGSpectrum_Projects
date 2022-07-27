@@ -4,6 +4,7 @@
 #include <conio.h>
 
 #include "StateMachineExampleGame.h"
+#include "Utility.h"
 
 using namespace std;
 
@@ -47,7 +48,7 @@ bool MainMenuState::Update(bool processInput)
 
 void MainMenuState::Draw()
 {
-	system("cls");
+	Utility::ClearScreen();
 	cout << endl << endl << endl;
 	cout << "          - - - MAIN MENU - - -" << endl << endl;
 	cout << "             " << kPlay << ". Play " << endl;
