@@ -1,0 +1,3 @@
+﻿  BubbleSort.cpp
+C:\Users\tbales\source\repos\CGSpectrum_Projects\CGSpectrum_Projects\BubbleSort\BubbleSort\BubbleSort.cpp(10,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  BubbleSort.vcxproj -> C:\Users\tbales\source\repos\CGSpectrum_Projects\CGSpectrum_Projects\BubbleSort\Debug\BubbleSort.exe
