@@ -1,18 +1,24 @@
 #pragma once
 
-#include <string>
-#include <list>
+#include<string>
+#include<unordered_map>
 
 using namespace std;
 
 class Node
 {
-public:
 	class Edge
 	{
 	public:
 		Node* m_node;
 		int m_cost;
+
+		Edge()
+			:m_node(nullptr),
+			m_cost(0)
+		{
+
+		}
 
 		Edge(Node* node, int cost)
 			:m_node(node),
@@ -27,69 +33,23 @@ public:
 		}
 	};
 
+public:
 	string m_name;
-	list<Edge>* m_pChildren;
+	//changed from list to unordered map to allow for easier access of edges
+	//renamed from m_pChildren to m_pNeighbors since it better describes node relationships
+		//in a graph.
+	unordered_map<string, Edge>* m_pNeighbors;
 
-	int TotalCost = 0;
-	Node* Parent = nullptr;
+	Node(string name);
 
-	Node(string name)
-		:m_name(name),
-		m_pChildren(new list<Edge>())
-	{
+	~Node();
 
-	}
+	//Renamed AddConnection to AddNeighbor for better readability
+	void AddNeighbor(Node* neighborNode, int cost);
 
-	~Node()
-	{
-		delete m_pChildren;
-		m_pChildren = nullptr;
-	}
+	//Renamed AddChildNode to AddDirectionalNeigbor for better readability
+	void AddDirectionalNeighbor(Node* toNode, int cost);
 
-
-
-	//Both this node and toNode will have each other as children
-	void ConnectNode(Node* toNode, int cost)
-	{
-		Edge edge = Edge(toNode, cost);
-		m_pChildren->push_back(edge);
-
-		toNode->AddChildNode(this, cost);
-	}
-
-	//Only this node will have toNode as a child
-	void AddChildNode(Node* toNode, int cost)
-	{
-		Edge edge = Edge(toNode, cost);
-		m_pChildren->push_back(edge);
-	}
-
-	void PrintChildren()
-	{
-		cout << "Node " << m_name << "'s child nodes are:" << endl;
-		for (auto const& edge : *m_pChildren) 
-		{
-			cout << edge.m_node->m_name << "; " << edge.m_cost << endl;
-		}
-
-		cout << endl;
-	}
+	void PrintChildren();
 };
-
-struct Coordinate
-{
-	string m_fromNode;
-	string m_toNode;
-	int m_cost;
-
-	Coordinate(string fromNode, string toNode, int cost)
-		:m_fromNode(fromNode),
-		m_toNode(toNode),
-		m_cost(cost)
-	{
-
-	}
-};
-
-
 
