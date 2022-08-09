@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include"Input.h"
+
 Game::Game()
 	: m_pStateMachine(nullptr)
 {
@@ -8,6 +10,8 @@ Game::Game()
 
 void Game::Initialize(GameStateMachine* pStateMachine)
 {
+	Input::GetInstance().Initialize();
+
 	if (pStateMachine != nullptr)
 	{
 		pStateMachine->Init();
@@ -21,6 +25,7 @@ void Game::RunGameLoop()
 
 	while (!isGameOver)
 	{
+		//TODO: add some sort of thread safe sleep function for consistent framerate
 		// update with no input
 		Update(false);
 		// Draw
@@ -34,6 +39,8 @@ void Game::RunGameLoop()
 
 void Game::Deinitialize()
 {
+	Input::GetInstance().Deinitialize();
+
 	if (m_pStateMachine != nullptr)
 		m_pStateMachine->Cleanup();
 }

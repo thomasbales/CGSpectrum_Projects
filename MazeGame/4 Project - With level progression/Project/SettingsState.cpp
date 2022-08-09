@@ -18,6 +18,11 @@ SettingsState::SettingsState(StateMachineExampleGame* pOwner)
 {
 }
 
+void SettingsState::Enter()
+{
+
+}
+
 bool SettingsState::Update(bool processInput)
 {
 	if (processInput)
@@ -54,4 +59,9 @@ void SettingsState::Draw()
 		cout << "OFF" << endl;
 	}
 	cout << "             " << kMainMenu << ". Back to Main Menu " << endl;
+}
+
+void SettingsState::Exit()
+{
+
 }

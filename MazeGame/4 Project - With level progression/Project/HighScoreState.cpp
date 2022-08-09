@@ -15,6 +15,11 @@ HighScoreState::HighScoreState(StateMachineExampleGame* pOwner)
 	m_HighScores = Utility::WriteHighScore(0);
 }
 
+void HighScoreState::Enter()
+{
+
+}
+
 bool HighScoreState::Update(bool processInput)
 {
 	if (processInput)
@@ -38,5 +43,10 @@ void HighScoreState::Draw()
 
 	cout << endl << endl;
 	cout << "             Press any key to go back to the main menu" << endl << endl << endl;
+
+}
+
+void HighScoreState::Exit()
+{
 
 }

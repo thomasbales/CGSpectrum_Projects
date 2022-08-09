@@ -24,6 +24,10 @@ class GameplayState : public GameState
 
 	std::vector<std::string> m_LevelNames;
 
+	void MovePlayer(char key);
+	void LoadMainMenu(char key);
+	void DropKey(char key);
+
 public:
 	GameplayState(StateMachineExampleGame* pOwner);
 	~GameplayState();
@@ -31,6 +35,7 @@ public:
 	virtual void Enter() override;
 	virtual bool Update(bool processInput = true) override;
 	virtual void Draw() override;
+	virtual void Exit() override;
 
 private:
 	void HandleCollision(int newPlayerX, int newPlayerY);

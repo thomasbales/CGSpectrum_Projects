@@ -14,6 +14,11 @@ LoseState::LoseState(StateMachineExampleGame* pOwner)
 {
 }
 
+void LoseState::Enter()
+{
+
+}
+
 bool LoseState::Update(bool processInput)
 {
 	if (processInput)
@@ -31,4 +36,9 @@ void LoseState::Draw()
 	cout << "          - - - GAME OVER - - -" << endl << endl;
 	cout << "             Better luck next time." << endl << endl << endl;
 	cout << "             Press any key to go back to the main menu" << endl << endl << endl;
+}
+
+void LoseState::Exit()
+{
+
 }

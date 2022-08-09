@@ -16,5 +16,7 @@ public:
 
 	virtual bool Update(bool processInput = true) override;
 	virtual void Draw() override;
+	virtual void Enter() override;
+	virtual void Exit() override;
 };
 
