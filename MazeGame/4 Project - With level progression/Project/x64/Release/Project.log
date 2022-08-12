@@ -1,7 +1,7 @@
 ﻿  GameplayState.cpp
   Generating code
-  136 of 789 functions (17.2%) were compiled, the rest were copied from previous compilation.
-    115 functions were new in current compilation
-    21 functions had inline decision re-evaluated but remain unchanged
+  477 of 788 functions (60.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    15 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Project.vcxproj -> C:\Users\tbales\source\repos\CGSpectrum_Projects\CGSpectrum_Projects\MazeGame\4 Project - With level progression\x64\Release\Project.exe

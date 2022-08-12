@@ -16,6 +16,8 @@
 #include "StateMachineExampleGame.h"
 #include "Input.h"
 
+#pragma optimize("", off)
+
 using namespace std;
 
 GameplayState::GameplayState(StateMachineExampleGame* pOwner)
@@ -64,8 +66,8 @@ void GameplayState::Enter()
 	Input::GetInstance().OnKeyDownS.AddListener(this, &GameplayState::MovePlayer);
 	Input::GetInstance().OnKeyDownD.AddListener(this, &GameplayState::MovePlayer);
 
-	Input::GetInstance().OnKeyDownZ.AddListener(this, &GameplayState::LoadMainMenu);
-	Input::GetInstance().OnKeyDownESC.AddListener(this, &GameplayState::DropKey);
+	Input::GetInstance().OnKeyDownZ.AddListener(this, &GameplayState::DropKey);
+	Input::GetInstance().OnKeyDownESC.AddListener(this, &GameplayState::LoadMainMenu);
 }
 
 bool GameplayState::Update(bool processInput)
@@ -295,6 +297,8 @@ void GameplayState::Exit()
 
 void GameplayState::MovePlayer(char key)
 {
+	cout << "Is this broke?" << endl;
+
 	int newPlayerX = m_player.GetXPosition();
 	int newPlayerY = m_player.GetYPosition();
 
@@ -318,7 +322,7 @@ void GameplayState::MovePlayer(char key)
 	// If position changed
 	if (newPlayerX != m_player.GetXPosition() && newPlayerY != m_player.GetYPosition())
 	{
-		HandleCollision(newPlayerX, newPlayerY);
+		//HandleCollision(newPlayerX, newPlayerY);
 	}
 }
 

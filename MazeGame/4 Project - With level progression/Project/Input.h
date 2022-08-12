@@ -3,6 +3,7 @@
 #include<thread>
 #include<iostream>
 #include <conio.h>
+#include <mutex>
 
 #include"Event.h"
 
@@ -110,24 +111,95 @@ class Input
 	}
 
 public:
-	//TODO: add input events that other functions can subscribe too
-	Event<char> OnKeyDownESC;
+	template<class... Args>
+	class InputEvent
+	{
+		Event<Args...>* m_pEvent;
 
-	Event<char> OnKeyDown1;
-	Event<char> OnKeyDown2;
-	Event<char> OnKeyDown3;
-	Event<char> OnKeyDown4;
+	public:
 
-	Event<char> OnKeyDownW;
-	Event<char> OnKeyDownA;
-	Event<char> OnKeyDownS;
-	Event<char> OnKeyDownD;
-	Event<char> OnKeyDownZ;
+		InputEvent()
+			:m_pEvent(new Event<Args...>())
+		{
 
-	Event<char>OnKeyDownLEFT;
-	Event<char>OnKeyDownRIGHT;
-	Event<char>OnKeyDownUP;
-	Event<char>OnKeyDownDOWN;
+		}
+
+		~InputEvent()
+		{
+			delete m_pEvent;
+			m_pEvent = nullptr;
+		}
+
+		static mutex& GetMutex()
+		{
+			static mutex inputThreadLock;
+			return inputThreadLock;
+		}
+
+		void AddListener(void (*pStaticFunction)(Args...))
+		{
+			//TODO: make thread safe w/ lock
+			GetMutex().lock();
+			m_pEvent->AddListener(pStaticFunction);
+			GetMutex().unlock();
+		}
+
+		template<class C>
+		void AddListener(C* pInstance, void (C::* pMemberFunction)(Args...))
+		{
+			//TODO: make thread safe w/ lock
+			GetMutex().lock();
+			m_pEvent->AddListener(pInstance, pMemberFunction);
+			GetMutex().unlock();
+		}
+
+		void RemoveListener(void (*pStaticFunction)(Args...))
+		{
+			//TODO: make thread safe w/ lock
+			GetMutex().lock();
+			m_pEvent->RemoveListener(pStaticFunction);
+			GetMutex().unlock();
+		}
+
+		template<class C>
+		void RemoveListener(C* pInstance, void (C::* pMemberFunction)(Args...))
+		{
+			//TODO: make thread safe w/ lock
+			GetMutex().lock();
+			m_pEvent->RemoveListener(pInstance, pMemberFunction);
+			GetMutex().unlock();
+		}
+
+		void Invoke(Args... args)
+		{
+			GetMutex().lock();
+			m_pEvent->Invoke(args...);
+			GetMutex().unlock();
+		}
+
+		void operator()(Args... args)
+		{
+			Invoke(args...);
+		}
+	};
+
+	InputEvent<char> OnKeyDownESC = InputEvent<char>();
+
+	InputEvent<char> OnKeyDown1 = InputEvent<char>();
+	InputEvent<char> OnKeyDown2 = InputEvent<char>();
+	InputEvent<char> OnKeyDown3 = InputEvent<char>();
+	InputEvent<char> OnKeyDown4 = InputEvent<char>();
+
+	InputEvent<char> OnKeyDownW = InputEvent<char>();
+	InputEvent<char> OnKeyDownA = InputEvent<char>();
+	InputEvent<char> OnKeyDownS = InputEvent<char>();
+	InputEvent<char> OnKeyDownD = InputEvent<char>();
+	InputEvent<char> OnKeyDownZ = InputEvent<char>();
+
+	InputEvent<char> OnKeyDownLEFT = InputEvent<char>();
+	InputEvent<char> OnKeyDownRIGHT = InputEvent<char>();
+	InputEvent<char> OnKeyDownUP = InputEvent<char>();
+	InputEvent<char> OnKeyDownDOWN = InputEvent<char>();
 
 	static Input& GetInstance()
 	{

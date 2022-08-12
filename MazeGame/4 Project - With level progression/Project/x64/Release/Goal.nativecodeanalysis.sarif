@@ -1,0 +1,393 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.29.30145.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00CFC1B0 -il C:\\Users\\tbales\\AppData\\Local\\Temp\\_CL_cb153529ast -typedil -f Goal.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1929 -D_MSC_FULL_VER=192930145 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -nologo -W 3 -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -GF -Og -Ot -Oy -Oi -ltcg -DCODE_ANALYSIS -DNDEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -MD -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -Fox64\\Release\\Goal.obj -Fdx64\\Release\\vc142.pdb -external:W 3 -Gd -analyze:projectdirectory C:\\Users\\tbales\\source\\repos\\CGSpectrum_Projects\\CGSpectrum_Projects\\MazeGame\\4 Project - With level progression\\Project -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\Users\\tbales\\source\\repos\\CGSpectrum_Projects\\CGSpectrum_Projects\\MazeGame\\4 Project - With level progression\\Project\\Include\\um -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.29.30133\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -external:I C:\\Users\\tbales\\source\\repos\\CGSpectrum_Projects\\CGSpectrum_Projects\\MazeGame\\4 Project - With level progression\\Project\\Include\\um -I C:\\Users\\tbales\\source\\repos\\CGSpectrum_Projects\\CGSpectrum_Projects\\MazeGame\\4 Project - With level progression\\Project\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/winstate.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "8abbd5011e631f091f9b0d3bf08c6289"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/winstate.h"
+          },
+          "hashes": {
+            "md5": "b25b23d45711b8738662ef29685e397a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/gamestate.h"
+          },
+          "hashes": {
+            "md5": "a5d355ea1b412869ed8654a0ffda4480"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/statemachineexamplegame.h"
+          },
+          "hashes": {
+            "md5": "30e40274170e09977134bcc9c7b7339f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/gamestatemachine.h"
+          },
+          "hashes": {
+            "md5": "09266e663567d794e5499c71cfb380fb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/utility.h"
+          },
+          "hashes": {
+            "md5": "4eb567129ef04750614fdd3feff5de4c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/statemachineexamplegame.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "cceb1584580995a9b819fbff85c8d7f0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/gameplaystate.h"
+          },
+          "hashes": {
+            "md5": "e1c40e74f09de654562900627b36f7e6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/player.h"
+          },
+          "hashes": {
+            "md5": "70437b2ba0aecee2fb586115448ba486"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/placableactor.h"
+          },
+          "hashes": {
+            "md5": "6ef56aad6f2a67485fe7e30862cd390c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/point.h"
+          },
+          "hashes": {
+            "md5": "f2ff9880b6dc3fec130c9c9a74af48ad"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/level.h"
+          },
+          "hashes": {
+            "md5": "a35b9ad94bafaea14cf692870261c340"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/mainmenustate.h"
+          },
+          "hashes": {
+            "md5": "8534d205b33a70311a5e662ee0f43bc1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/settingsstate.h"
+          },
+          "hashes": {
+            "md5": "4a9ae4f801158cc9eec51bd7d890b499"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/highscorestate.h"
+          },
+          "hashes": {
+            "md5": "32af2c3aa5710b8e575c430851352f3b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/losestate.h"
+          },
+          "hashes": {
+            "md5": "aebfa23bb5b01aa38006009d0ddd0489"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/game.h"
+          },
+          "hashes": {
+            "md5": "dd9302e0d4677158ead06eafb0a14530"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/settingsstate.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "3535126c0d66b1b66815a35938d673bf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/audiomanager.h"
+          },
+          "hashes": {
+            "md5": "827de373f3e0fa86d144907f605ac211"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/project.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "bf3eff6c99d1cafdb559a1ff1f634d0f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/player.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "e7838141f2f7f22cfc60c7be5c6781b3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/key.h"
+          },
+          "hashes": {
+            "md5": "8ceff5e79171a3a14542f5d64434261c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/placableactor.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "dcdafa2b8fb2b74050c88a5fbae21e61"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/money.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "0aaa4ecb56572b5657daa06232cea400"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/money.h"
+          },
+          "hashes": {
+            "md5": "61c65c3d97c317a06cecb76272f9c63e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/mainmenustate.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "438da21244658a07499055789f137354"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/input.h"
+          },
+          "hashes": {
+            "md5": "7f334404d7bf0dc2962585deb75c60a6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/event.h"
+          },
+          "hashes": {
+            "md5": "0a33e4f81320d406a35fa202cdf2959f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/delegate.h"
+          },
+          "hashes": {
+            "md5": "23d0f8ce815115aa7d1b2d7164ce3228"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/idelegate.h"
+          },
+          "hashes": {
+            "md5": "236d497b9b903086a4ce730b1583a70e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/staticdelegate.h"
+          },
+          "hashes": {
+            "md5": "2711686e634a7bf055ac17aa7256e65e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/memberdelegate.h"
+          },
+          "hashes": {
+            "md5": "055805786117f14bea63dd55d890668e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/losestate.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "2204e71e7b21ee10cb4d844e67dd1ac2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/tbales/source/repos/CGSpectrum_Projects/CGSpectrum_Projects/MazeGame/4 Project - With level progression/Project/Level.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "a40a90e9bedee45c95709f66820126be"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/enemy.h"
+          },
+          "hashes": {
+            "md5": "0d175f6c9907359216f4d8aa9e8f600c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/door.h"
+          },
+          "hashes": {
+            "md5": "61e30db5a7e3fdbf2d6bdeb7d30a4153"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/goal.h"
+          },
+          "hashes": {
+            "md5": "ca47956a640a59190bd498ebf4d4240b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/box.h"
+          },
+          "hashes": {
+            "md5": "d6b86dc88a262bf835c1de11e56388bf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/key.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "5000918e15f85f69a1bdf5e0706f641c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/highscorestate.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "b7a71e4523f3481705e302379e24a25f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tbales/source/repos/cgspectrum_projects/cgspectrum_projects/mazegame/4 project - with level progression/project/goal.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "ee5f1025db26aa40cb1081baef5c9038"
+          }
+        }
+      ]
+    }
+  ]
+}

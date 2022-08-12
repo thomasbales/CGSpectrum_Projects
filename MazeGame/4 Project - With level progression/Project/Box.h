@@ -9,7 +9,6 @@ public:
 
 	virtual ActorType GetType() override { return ActorType::Box; }
 	virtual void Draw() override;
-	virtual void Update(Level* level) override;
 
 	void HandleOnCollision(int newPlayerX, int newPlayerY, Player* pPlayer, Level* pLevel);
 };

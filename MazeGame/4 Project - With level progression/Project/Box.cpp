@@ -23,11 +23,6 @@ void Box::Draw()
 	SetConsoleTextAttribute(console, (int)ActorColor::Regular);
 }
 
-void Box::Update(Level* level)
-{
-	
-}
-
 void Box::HandleOnCollision(int newPlayerX, int newPlayerY, Player* pPlayer, Level* pLevel)
 {
 	int deltaX = newPlayerX - pPlayer->GetXPosition();

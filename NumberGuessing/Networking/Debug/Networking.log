@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Networking.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+C:\Users\tbales\source\repos\CGSpectrum_Projects\CGSpectrum_Projects\NumberGuessing\Networking\NetworkHost.h(128,28): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'void *'
+C:\Users\tbales\source\repos\CGSpectrum_Projects\CGSpectrum_Projects\NumberGuessing\Networking\NetworkHost.h(238,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Networking.vcxproj -> C:\Users\tbales\source\repos\CGSpectrum_Projects\CGSpectrum_Projects\NumberGuessing\Debug\NumberGuessing.exe
