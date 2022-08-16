@@ -27,6 +27,7 @@ void MainMenuState::Enter()
 bool MainMenuState::Update(bool processInput)
 {
 	//TODO: incorporate processInput and beatLevel bools into input
+	this_thread::sleep_for(chrono::milliseconds(100));
 	return m_shouldQuit;
 }
 

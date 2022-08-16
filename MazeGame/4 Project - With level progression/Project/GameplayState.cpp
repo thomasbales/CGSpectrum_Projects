@@ -4,6 +4,8 @@
 #include <conio.h>
 #include <windows.h>
 #include <assert.h>
+#include <thread>
+#include <chrono>
 
 #include "Enemy.h"
 #include "Key.h"
@@ -73,132 +75,49 @@ void GameplayState::Enter()
 bool GameplayState::Update(bool processInput)
 {
 	//TODO: incorporate processInput and beatLevel bools into input
-	if (processInput && !m_beatLevel)
-	{
-		
-	}
 
-	if (m_beatLevel)
-	{
-		++m_skipFrameCount;
-		if (m_skipFrameCount > kFramesToSkip)
-		{
-			m_beatLevel = false;
-			m_skipFrameCount = 0;
-			++m_currentLevel;
-			if (m_currentLevel == m_LevelNames.size())
-			{
-				Utility::WriteHighScore(m_player.GetMoney());
+	m_pLevel->UpdateActors();
 
-				AudioManager::GetInstance()->PlayWinSound();
-				
-				m_pOwner->LoadScene(StateMachineExampleGame::SceneName::Win);
-			}
-			else
-			{
-				// On to the next level
-				Load();
-			}
+	//if (processInput && !m_beatLevel)
+	//{
+	//	
+	//}
 
-		}
-	}
+	//if (m_beatLevel)
+	//{
+	//	++m_skipFrameCount;
+	//	if (m_skipFrameCount > kFramesToSkip)
+	//	{
+	//		m_beatLevel = false;
+	//		m_skipFrameCount = 0;
+	//		++m_currentLevel;
+	//		if (m_currentLevel == m_LevelNames.size())
+	//		{
+	//			Utility::WriteHighScore(m_player.GetMoney());
 
+	//			AudioManager::GetInstance()->PlayWinSound();
+	//			
+	//			m_pOwner->LoadScene(StateMachineExampleGame::SceneName::Win);
+	//		}
+	//		else
+	//		{
+	//			// On to the next level
+	//			Load();
+	//		}
+
+	//	}
+	//}
+
+
+	this_thread::sleep_for(chrono::milliseconds(200));
 	return false;
 }
 
 void GameplayState::HandleCollision(int newPlayerX, int newPlayerY)
 {
-	PlacableActor* collidedActor = m_pLevel->UpdateActors(newPlayerX, newPlayerY);
-	if (collidedActor != nullptr && collidedActor->IsActive())
-	{
-		switch (collidedActor->GetType())
-		{
-		case ActorType::Enemy:
-		{
-			Enemy* collidedEnemy = dynamic_cast<Enemy*>(collidedActor);
-			assert(collidedEnemy);
-			AudioManager::GetInstance()->PlayLoseLivesSound();
-			collidedEnemy->Remove();
-			m_player.SetPosition(newPlayerX, newPlayerY);
+	//TODO: update handle collision logic
 
-			m_player.DecrementLives();
-			if (m_player.GetLives() < 0)
-			{
-				//TODO: Go to game over screen
-				AudioManager::GetInstance()->PlayLoseSound();
-				m_pOwner->LoadScene(StateMachineExampleGame::SceneName::Lose);
-			}
-			break;
-		}
-		case ActorType::Money:
-		{
-			Money* collidedMoney = dynamic_cast<Money*>(collidedActor);
-			assert(collidedMoney);
-			AudioManager::GetInstance()->PlayMoneySound();
-			collidedMoney->Remove();
-			m_player.AddMoney(collidedMoney->GetWorth());
-			m_player.SetPosition(newPlayerX, newPlayerY);
-			break;
-		}
-		case ActorType::Key:
-		{
-			Key* collidedKey = dynamic_cast<Key*>(collidedActor);
-			assert(collidedKey);
-			if (!m_player.HasKey())
-			{
-				m_player.PickupKey(collidedKey);
-				collidedKey->Remove();
-				m_player.SetPosition(newPlayerX, newPlayerY);
-				AudioManager::GetInstance()->PlayKeyPickupSound();
-			}
-			break;
-		}
-		case ActorType::Door:
-		{
-			Door* collidedDoor = dynamic_cast<Door*>(collidedActor);
-			assert(collidedDoor);
-			if (!collidedDoor->IsOpen())
-			{
-				if (m_player.HasKey(collidedDoor->GetColor()))
-				{
-					collidedDoor->Open();
-					collidedDoor->Remove();
-					m_player.UseKey();
-					m_player.SetPosition(newPlayerX, newPlayerY);
-					AudioManager::GetInstance()->PlayDoorOpenSound();
-				}
-				else
-				{
-					AudioManager::GetInstance()->PlayDoorClosedSound();
-				}
-			}
-			else
-			{
-				m_player.SetPosition(newPlayerX, newPlayerY);
-			}
-			break;
-		}
-		case ActorType::Goal:
-		{
-			Goal* collidedGoal = dynamic_cast<Goal*>(collidedActor);
-			assert(collidedGoal);
-			collidedGoal->Remove();
-			m_player.SetPosition(newPlayerX, newPlayerY);
-			m_beatLevel = true;
-			break;
-		}
-		case ActorType::Box:
-		{
-			Box* collidedBox = dynamic_cast<Box*>(collidedActor);
-			assert(collidedBox);
-
-			collidedBox->HandleOnCollision(newPlayerX, newPlayerY, &m_player, m_pLevel);
-		}
-		default:
-			break;
-		}
-	}
-	else if (m_pLevel->IsSpace(newPlayerX, newPlayerY)) // no collision
+	if (m_pLevel->IsSpace(newPlayerX, newPlayerY)) // no collision
 	{
 		m_player.SetPosition(newPlayerX, newPlayerY);
 	}
@@ -297,8 +216,6 @@ void GameplayState::Exit()
 
 void GameplayState::MovePlayer(char key)
 {
-	cout << "Is this broke?" << endl;
-
 	int newPlayerX = m_player.GetXPosition();
 	int newPlayerY = m_player.GetYPosition();
 
@@ -320,9 +237,9 @@ void GameplayState::MovePlayer(char key)
 	}
 
 	// If position changed
-	if (newPlayerX != m_player.GetXPosition() && newPlayerY != m_player.GetYPosition())
+	if (newPlayerX != m_player.GetXPosition() || newPlayerY != m_player.GetYPosition())
 	{
-		//HandleCollision(newPlayerX, newPlayerY);
+		HandleCollision(newPlayerX, newPlayerY);
 	}
 }
 
